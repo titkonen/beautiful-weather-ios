@@ -1,11 +1,3 @@
-//
-//  WeatherManager.swift
-//  Clima
-//
-//  Created by Angela Yu on 03/09/2019.
-//  Copyright © 2019 App Brewery. All rights reserved.
-//
-
 import Foundation
 import CoreLocation
 
@@ -15,7 +7,7 @@ protocol WeatherManagerDelegate {
 }
 
 struct WeatherManager {
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=e72ca729af228beabd5d20e3b7749713&units=metric"
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=265971031f82cdb525843697b047c9d1&units=metric"
     
     var delegate: WeatherManagerDelegate?
     
