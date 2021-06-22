@@ -6,8 +6,9 @@ protocol WeatherManagerDelegate {
     func didFailWithError(error: Error)
 }
 
+// http://api.openweathermap.org/data/2.5/weather?q=helsinki&appid=99fbb18d7ecedc2983075cf0df822b4e
 struct WeatherManager {
-    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=265971031f82cdb525843697b047c9d1&units=metric"
+    let weatherURL = "https://api.openweathermap.org/data/2.5/weather?appid=99fbb18d7ecedc2983075cf0df822b4e&units=metric"
     
     var delegate: WeatherManagerDelegate?
     
@@ -46,8 +47,10 @@ struct WeatherManager {
             let id = decodedData.weather[0].id
             let temp = decodedData.main.temp
             let name = decodedData.name
+            let windSpeed = decodedData.wind.speed
+            let windDegree = decodedData.wind.deg
             
-            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp)
+            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, tuuli: windSpeed, tuulensuunta: windDegree )
             return weather
             
         } catch {

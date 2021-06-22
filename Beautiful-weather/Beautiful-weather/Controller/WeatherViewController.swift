@@ -1,11 +1,3 @@
-//
-//  ViewController.swift
-//  Clima
-//
-//  Created by Angela Yu on 01/09/2019.
-//  Copyright © 2019 App Brewery. All rights reserved.
-//
-
 import UIKit
 import CoreLocation
 
@@ -15,6 +7,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var tuulennopeus: UILabel!
+    @IBOutlet weak var tuulensuunta: UILabel!
     
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
@@ -33,7 +27,6 @@ class WeatherViewController: UIViewController {
 }
 
 //MARK: - UITextFieldDelegate
-
 extension WeatherViewController: UITextFieldDelegate {
     
     @IBAction func searchPressed(_ sender: UIButton) {
@@ -66,8 +59,6 @@ extension WeatherViewController: UITextFieldDelegate {
 }
 
 //MARK: - WeatherManagerDelegate
-
-
 extension WeatherViewController: WeatherManagerDelegate {
     
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
@@ -75,6 +66,11 @@ extension WeatherViewController: WeatherManagerDelegate {
             self.temperatureLabel.text = weather.temperatureString
             self.conditionImageView.image = UIImage(systemName: weather.conditionName)
             self.cityLabel.text = weather.cityName
+            self.tuulennopeus.text = weather.tuuliString
+            self.tuulensuunta.text = weather.tuulensuuntaString
+            // TÄNNE
+            
+            
         }
     }
     
@@ -84,8 +80,6 @@ extension WeatherViewController: WeatherManagerDelegate {
 }
 
 //MARK: - CLLocationManagerDelegate
-
-
 extension WeatherViewController: CLLocationManagerDelegate {
     
     @IBAction func locationPressed(_ sender: UIButton) {
