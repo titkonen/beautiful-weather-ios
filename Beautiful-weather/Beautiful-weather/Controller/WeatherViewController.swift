@@ -3,23 +3,24 @@ import CoreLocation
 
 class WeatherViewController: UIViewController {
     
+    // MARK: Outlets
     @IBOutlet weak var conditionImageView: UIImageView!
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tuulennopeus: UILabel!
     @IBOutlet weak var tuulensuunta: UILabel!
-    
+
+    // MARK: Properties
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
     
+    // MARK: View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
-        
         weatherManager.delegate = self
         searchTextField.delegate = self
     }
@@ -48,11 +49,9 @@ extension WeatherViewController: UITextFieldDelegate {
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-        
         if let city = searchTextField.text {
             weatherManager.fetchWeather(cityName: city)
         }
-        
         searchTextField.text = ""
         
     }
@@ -69,8 +68,6 @@ extension WeatherViewController: WeatherManagerDelegate {
             self.tuulennopeus.text = weather.tuuliString
             self.tuulensuunta.text = weather.tuulensuuntaString
             // TÄNNE
-            
-            
         }
     }
     
