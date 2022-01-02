@@ -49,8 +49,9 @@ struct WeatherManager {
             let name = decodedData.name
             let windSpeed = decodedData.wind.speed
             let windDegree = decodedData.wind.deg
+            let windGust = decodedData.wind.gust /// Gust property
             
-            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, tuuli: windSpeed, tuulensuunta: windDegree )
+            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, tuuli: windSpeed, tuulensuunta: windDegree, tuulenpuuska: windGust )
             return weather
             
         } catch {

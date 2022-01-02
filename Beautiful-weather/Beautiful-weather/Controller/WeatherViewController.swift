@@ -10,7 +10,8 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var tuulennopeus: UILabel!
     @IBOutlet weak var tuulensuunta: UILabel!
-
+    @IBOutlet weak var tuulenpuuska: UILabel!
+    
     // MARK: Properties
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
@@ -67,7 +68,7 @@ extension WeatherViewController: WeatherManagerDelegate {
             self.cityLabel.text = weather.cityName
             self.tuulennopeus.text = weather.tuuliString
             self.tuulensuunta.text = weather.tuulensuuntaString
-            // TÄNNE
+            self.tuulenpuuska.text = weather.tuulenpuuskaString
         }
     }
     
