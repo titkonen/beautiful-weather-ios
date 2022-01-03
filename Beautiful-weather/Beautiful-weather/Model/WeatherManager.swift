@@ -46,12 +46,13 @@ struct WeatherManager {
             let decodedData = try decoder.decode(WeatherData.self, from: weatherData)
             let id = decodedData.weather[0].id
             let temp = decodedData.main.temp
+            //let temp_min = decodedData.main.temp_min
             let name = decodedData.name
             let windSpeed = decodedData.wind.speed
             let windDegree = decodedData.wind.deg
-            let windGust = decodedData.wind.gust /// Gust property
+            let windGust = decodedData.wind.gust
             
-            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, tuuli: windSpeed, tuulensuunta: windDegree, tuulenpuuska: windGust )
+            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, tuuli: windSpeed, tuulensuunta: windDegree, tuulenpuuska: windGust) // , temperature_min: temp_min
             return weather
             
         } catch {

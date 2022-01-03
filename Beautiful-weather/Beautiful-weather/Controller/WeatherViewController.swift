@@ -12,9 +12,13 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tuulensuunta: UILabel!
     @IBOutlet weak var tuulenpuuska: UILabel!
     
+    @IBOutlet weak var conditionBackground: UIImageView!
+    
+    
     // MARK: Properties
     var weatherManager = WeatherManager()
     let locationManager = CLLocationManager()
+    var image = UIImage()
     
     // MARK: View Life Cycle
     override func viewDidLoad() {
@@ -64,11 +68,12 @@ extension WeatherViewController: WeatherManagerDelegate {
     func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel) {
         DispatchQueue.main.async {
             self.temperatureLabel.text = weather.temperatureString + " °C"
-            self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+            self.conditionImageView.image = UIImage(systemName: weather.conditionName) //Weather icon
             self.cityLabel.text = weather.cityName
             self.tuulennopeus.text = weather.tuuliString + " m/s"
             self.tuulensuunta.text = weather.tuulensuuntaString + " °"
             self.tuulenpuuska.text = weather.tuulenpuuskaString + " m/s"
+           // self.conditionBackground.image = UIImage(systemName: weather.conditionBg) // tausta
         }
     }
     

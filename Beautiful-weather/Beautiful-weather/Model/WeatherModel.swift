@@ -1,16 +1,23 @@
 import Foundation
+import UIKit
 
 struct WeatherModel {
     let conditionId: Int
     let cityName: String
     let temperature: Double
+    //let temperature_min: Double
     let tuuli: Double
     let tuulensuunta: Double
     let tuulenpuuska: Double
+    var image = UIImage()
     
     var temperatureString: String {
         return String(format: "%.1f", temperature)
     }
+    
+//    var temperature_min_String: String {
+//        return String(format: "%.1f", temperature_min)
+//    }
     
     var tuuliString: String {
         return String(format: "%.1f", tuuli)
@@ -44,5 +51,36 @@ struct WeatherModel {
             return "cloud"
         }
     }
+    
+//    var imageView: UIImageView
+//
+//    var conditionBg: UIImageView {
+//        switch conditionId {
+//        case 200...232:
+//            imageView.image = UIImage(named: "demokuva.png")
+//            return imageView
+//        case 300...321:
+//            imageView.image = UIImage(named: "demokuva.png")
+//            return imageView
+//        case 500...531:
+//            imageView.image = UIImage(named: "demokuva.png")
+//            return imageView
+//        case 600...622:
+//            imageView.image = UIImage(named: "demokuva.png")
+//            return imageView
+//        case 701...781:
+//            imageView.image = UIImage(named: "demokuva.png")
+//            return imageView
+//        case 800:
+//            imageView.image = UIImage(named: "demokuva.png")
+//            return imageView
+//        case 801...804:
+//            imageView.image = UIImage(named: "demokuva.png")
+//            return imageView
+//        default:
+//            imageView.image = UIImage(named: "demokuva.png")
+//            return imageView
+//        }
+//    }
     
 }
