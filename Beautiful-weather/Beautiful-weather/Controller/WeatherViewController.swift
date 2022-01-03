@@ -12,6 +12,9 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tuulensuunta: UILabel!
     @IBOutlet weak var tuulenpuuska: UILabel!
     
+    @IBOutlet weak var sunrise: UILabel!
+    @IBOutlet weak var sunset: UILabel!
+    
     @IBOutlet weak var conditionBackground: UIImageView!
     
     
@@ -73,6 +76,8 @@ extension WeatherViewController: WeatherManagerDelegate {
             self.tuulennopeus.text = weather.tuuliString + " m/s"
             self.tuulensuunta.text = weather.tuulensuuntaString + " °"
             self.tuulenpuuska.text = weather.tuulenpuuskaString + " m/s"
+            self.sunrise.text = weather.sunriseString
+            self.sunset.text = weather.sunsetString
            // self.conditionBackground.image = UIImage(systemName: weather.conditionBg) // tausta
         }
     }

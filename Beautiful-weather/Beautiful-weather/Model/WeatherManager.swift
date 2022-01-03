@@ -51,8 +51,10 @@ struct WeatherManager {
             let windSpeed = decodedData.wind.speed
             let windDegree = decodedData.wind.deg
             let windGust = decodedData.wind.gust
+            let sunrise = decodedData.sys.sunrise
+            let sunset = decodedData.sys.sunset
             
-            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, tuuli: windSpeed, tuulensuunta: windDegree, tuulenpuuska: windGust) // , temperature_min: temp_min
+            let weather = WeatherModel(conditionId: id, cityName: name, temperature: temp, tuuli: windSpeed, tuulensuunta: windDegree, tuulenpuuska: windGust, sunrise: sunrise, sunset: sunset) // , temperature_min: temp_min
             return weather
             
         } catch {

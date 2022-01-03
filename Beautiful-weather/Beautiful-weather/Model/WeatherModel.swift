@@ -9,6 +9,8 @@ struct WeatherModel {
     let tuuli: Double
     let tuulensuunta: Double
     let tuulenpuuska: Double
+    let sunrise: Double
+    let sunset: Double
     var image = UIImage()
     
     var temperatureString: String {
@@ -29,6 +31,14 @@ struct WeatherModel {
     
     var tuulenpuuskaString: String {
         return String(format: "%.0f", tuulenpuuska)
+    }
+    
+    var sunriseString: String {
+        return String(format: "%.0f", sunrise)
+    }
+    
+    var sunsetString: String {
+        return String(format: "%.0f", sunset)
     }
     
     var conditionName: String {
